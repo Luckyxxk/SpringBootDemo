@@ -17,7 +17,8 @@ public class ReduceStockController {
     private RedissonClient redissonClient;
 
     @Transactional
-    public int reduceStock() {
+    public synchronized int reduceStock() {
+
         return 0;
     }
 
