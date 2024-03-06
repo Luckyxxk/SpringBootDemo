@@ -18,6 +18,8 @@ public class ReduceStockController {
 
     @Transactional
     public int reduceStock() {
+        //先查询缓存
+        //缓存没有，查询数据库
         return 0;
     }
 
