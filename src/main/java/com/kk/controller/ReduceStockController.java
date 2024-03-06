@@ -17,8 +17,9 @@ public class ReduceStockController {
     private RedissonClient redissonClient;
 
     @Transactional
-    public synchronized int reduceStock() {
-
+    public int reduceStock() {
+        //先查询缓存
+        //缓存没有，查询数据库
         return 0;
     }
 
