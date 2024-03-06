@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ReduceStockController {
 
     @Autowired
-    private RedissonClient redissonClient;
+    private RedissonClient redisson;
 
     @Transactional
     public int reduceStock() {
