@@ -1,5 +1,6 @@
 package com.kk.controller;
 
+import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,8 +19,14 @@ public class ReduceStockController {
 
     @Transactional
     public int reduceStock() {
-        //先查询缓存
-        //缓存没有，查询数据库
+        RLock rLock = redisson.getLock("分布式锁");
+        rLock.lock();
+        try {
+            //先查询缓存
+            //缓存没有，查询数据库
+        }  finally {
+            rLock.unlock();
+        }
         return 0;
     }
 
